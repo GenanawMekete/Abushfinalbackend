@@ -29,7 +29,7 @@ class WebAppHandler {
   }
   
   async sendWebAppButton(chatId) {
-    const welcomeMessage = `🎮 *Welcome to Abush Bingo!* 🎮\n\n` +
+    const welcomeMessage = `🎮 *Welcome to Geez Bingo!* 🎮\n\n` +
       `Experience the ultimate bingo gaming with our interactive Web App!\n\n` +
       `✨ *Features:*\n` +
       `• Real-time multiplayer games\n` +
@@ -37,14 +37,14 @@ class WebAppHandler {
       `• Instant prize distribution\n` +
       `• Secure payments\n` +
       `• Live game statistics\n\n` +
-      `Click the button below to start the game:`;
+      `Click the button below to launch the game:`;
     
     const options = {
       parse_mode: 'Markdown',
       reply_markup: {
         inline_keyboard: [[
           {
-            text: '🎮 START GAME',
+            text: '🎮 LAUNCH BINGO GAME',
             web_app: { url: this.webappUrl }
           }
         ]]
