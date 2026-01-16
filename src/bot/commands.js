@@ -282,6 +282,19 @@ module.exports = {
       this.bot.sendMessage(chatId, '❌ Failed to get referral info.');
     }
   },
+  // In src/bot/commands.js, add Web App button
+async function showWebApp(chatId) {
+    const webAppUrl = 'https://newfrontend-ten.vercel.app';
+    
+    await bot.sendMessage(chatId, '🎮 Launch Bingo Game', {
+        reply_markup: {
+            inline_keyboard: [[{
+                text: '🎮 PLAY BINGO NOW',
+                web_app: { url: webAppUrl }
+            }]]
+        }
+    });
+},
   
   async help(msg) {
     const chatId = msg.chat.id;
