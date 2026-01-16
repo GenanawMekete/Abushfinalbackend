@@ -1,7 +1,7 @@
 {
-  "name": "telegram-bingo-bot",
+  "name": "geeze-bingo-bot",
   "version": "1.0.0",
-  "description": "Multiplayer Bingo Game with Telegram Bot",
+  "description": "Telegram Bingo Game with Web App Interface",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -20,7 +20,8 @@
     "winston": "^3.11.0",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
-    "node-cron": "^3.0.3"
+    "node-cron": "^3.0.3",
+    "compression": "^1.7.4"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
