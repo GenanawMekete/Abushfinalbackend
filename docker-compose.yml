@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6
+    container_name: bingo-mongodb
+    restart: unless-stopped
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=secure_password
+    ports:
+      - "27017:27017"
+
+  bingo-bot:
+    build: .
+    container_name: bingo-bot
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://admin:secure_password@mongodb:27017/bingo_bot?authSource=admin
+      - BOT_TOKEN=${BOT_TOKEN}
+      - BOT_WEBHOOK_URL=${BOT_WEBHOOK_URL}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./logs:/app/logs
+
+volumes:
+  mongodb_data:
